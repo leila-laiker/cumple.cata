@@ -1,210 +1,279 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Invitación de Cumpleaños</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Quicksand', sans-serif;
-      background-color: #ffcce6;
+      font-family: 'Poppins', sans-serif;
+      background-image: url('multimedia/fondo 4.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
       text-align: center;
+      overflow-x: hidden;
     }
-    .container {
-      padding: 30px 15px;
-      max-width: 480px;
-      margin: auto;
-    }
+
     .hello-kitty-container {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-top: 20px;
     }
+
     .hello-kitty {
-      width: 150px;
-      background-color: transparent;
+      width: 90px;
     }
+
     .banderin {
       font-family: 'Pacifico', cursive;
-      font-size: 26px;
+      font-size: 30px;
       color: white;
       background: linear-gradient(90deg, #ff66b2, #ff99cc);
-      padding: 10px 20px;
+      padding: 10px 25px;
       margin-top: 10px;
       display: inline-block;
       border-radius: 25px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
+
     .nombre {
       font-family: 'Pacifico', cursive;
-      font-size: 32px;
+      font-size: 36px;
       color: #d63384;
       margin: 20px 0 15px;
     }
+
     .texto {
-      font-size: 18px;
-      margin: 8px 0;
-      color: #5c005c;
+      font-size: 20px;
+      margin: 10px 0;
+      color: #4e001a;
       font-weight: 600;
     }
 
-    /* Countdown */
     .countdown {
       background: linear-gradient(145deg, #ffe6f0, #ffcce6);
       border: 2px dashed #ff99cc;
       display: inline-block;
-      padding: 8px;
+      padding: 10px;
       border-radius: 20px;
-      margin: 12px 0;
-      font-size: 13px;
+      margin: 15px 0;
+      font-size: 16px;
       color: #c2185b;
       font-weight: bold;
       box-shadow: inset 0 0 8px #ffb3d9;
-      position: relative;
     }
-    .countdown::before, .countdown::after {
-      content: "🎀";
-      position: absolute;
-      font-size: 14px;
-      top: -14px;
-      left: 10px;
-    }
-    .countdown::after {
-      content: "🎂";
-      top: auto;
-      bottom: -14px;
-      right: 10px;
-      left: auto;
-    }
+
     .countdown span {
       display: inline-block;
-      margin: 2px 3px;
-      padding: 3px 6px;
+      margin: 3px 5px;
+      padding: 4px 8px;
       background-color: #fff0f5;
       border-radius: 15px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-      font-size: 12px;
+      font-size: 14px;
     }
 
     .boton {
       margin: 25px 0;
     }
+
     .boton a {
       background-color: #ff3399;
       color: white;
-      padding: 12px 24px;
+      padding: 14px 28px;
       text-decoration: none;
-      font-size: 16px;
-      border-radius: 25px;
+      font-size: 18px;
+      border-radius: 30px;
       box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
       font-weight: 600;
       display: inline-block;
     }
 
-    /* Carrusel */
     .carrusel-container {
-      position: relative;
-      max-width: 270px;
+      width: 90%;
+      max-width: 800px;
+      height: 400px;
       margin: 30px auto;
       overflow: hidden;
       border-radius: 20px;
-      border: 4px solid #ff66b2;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border: 5px solid #ff66b2;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
       background-color: white;
     }
 
     .carrusel {
       display: flex;
-      transition: transform 0.5s ease-in-out;
+      transition: transform 1s ease-in-out;
       width: 100%;
+      height: 100%;
     }
 
     .carrusel img {
-      width: 270px;
-      height: auto;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       border-radius: 20px;
+      flex-shrink: 0;
     }
 
-    .prev, .next {
+    @media (max-width: 600px) {
+      .hello-kitty {
+        width: 70px;
+      }
+
+      .banderin {
+        font-size: 24px;
+        padding: 8px 20px;
+      }
+
+      .nombre {
+        font-size: 28px;
+      }
+
+      .texto {
+        font-size: 17px;
+      }
+
+      .countdown {
+        font-size: 13px;
+      }
+
+      .countdown span {
+        font-size: 12px;
+      }
+
+      .boton a {
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+
+      .carrusel-container {
+        position: relative;
+        max-width: 270px;
+        margin: 30px auto;
+        overflow: hidden;
+        border-radius: 20px;
+        border: 4px solid #ff66b2;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        background-color: white;
+      }
+    }
+
+    .mariposa {
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: #ff99cc;
-      border: none;
-      border-radius: 50%;
-      padding: 8px 12px;
-      cursor: pointer;
-      font-size: 18px;
-      color: white;
-      font-weight: bold;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      width: 50px;
+      height: 50px;
+      animation: vuelo 20s infinite linear;
+      z-index: 9999;
+      pointer-events: none;
     }
 
-    .prev {
-      left: 10px;
-    }
+    .mariposa:nth-child(1) { top: 10%; left: -60px; animation-delay: 0s; }
+    .mariposa:nth-child(2) { top: 30%; left: -60px; animation-delay: 5s; }
+    .mariposa:nth-child(3) { top: 50%; left: -60px; animation-delay: 10s; }
+    .mariposa:nth-child(4) { top: 70%; left: -60px; animation-delay: 7s; }
 
-    .next {
-      right: 10px;
+    @keyframes vuelo {
+      0% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+        opacity: 0.8;
+      }
+      25% {
+        transform: translateX(25vw) translateY(-30px) rotate(15deg);
+      }
+      50% {
+        transform: translateX(50vw) translateY(20px) rotate(-10deg);
+        opacity: 1;
+      }
+      75% {
+        transform: translateX(75vw) translateY(-25px) rotate(10deg);
+      }
+      100% {
+        transform: translateX(100vw) translateY(0px) rotate(0deg);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="hello-kitty-container">
-      <img src="multimedia/inicio.png" alt="Hello Kitty" class="hello-kitty">
-      <div class="banderin">🎉 ¡Mis 5 añitos! 🎈</div>
-    </div>
-    <div class="nombre">Cataleya</div>
-    <div class="texto">¡Acompáñame a celebrar mi cumple!</div>
+  <!-- Mariposas -->
+  <img src="multimedia/mariposa.png.png" class="mariposa" alt="mariposa">
+  <img src="multimedia/mariposa.png.png" class="mariposa" alt="mariposa">
+  <img src="multimedia/mariposa.png.png" class="mariposa" alt="mariposa">
+  <img src="multimedia/mariposa.png.png" class="mariposa" alt="mariposa">
 
-    <!-- Conteo regresivo -->
-    <div class="countdown" id="countdown">
-      Cargando cuenta regresiva...
-    </div>
+  <div class="hello-kitty-container">
+    <img src="multimedia/inicio.png" alt="Hello Kitty" class="hello-kitty">
+    <div class="banderin">🎉 ¡Mis 5 añitos! 🎈</div>
+  </div>
 
-    <div class="texto">📅 Fecha: 6 de mayo del 2025</div>
-    <div class="texto">🕒 Horario: 16:00 hrs</div>
-    <div class="texto">📍 Ubicación: Salón Arcoíris, Av. Fiesta 123</div>
+  <div class="nombre">Cataleya</div>
+  <div class="texto">¡Acompáñame a celebrar mi cumple!</div>
 
-    <div class="boton">
-      <a href="#">Confirmar asistencia</a>
-    </div>
+  <!-- Moñito decorativo -->
+  <div style="margin-top: 10px;">
+    <img src="multimedia/mariposa.png.png" alt="moñito" style="width: 60px; margin-bottom: -10px;">
+  </div>
 
-    <!-- Carrusel de fotos -->
-    <div class="carrusel-container">
-      <div class="carrusel" id="carrusel">
-        <img src="multimedia/Imagen de WhatsApp 2025-03-17 a las 19.23.19_53a7116d.jpg" alt="Foto 1">
-        <img src="multimedia/Imagen de WhatsApp 2025-03-17 a las 19.23.19_665f2c32.jpg" alt="Foto 2">
-        <img src="multimedia/Imagen de WhatsApp 2025-03-17 a las 19.23.19_dab75265.jpg" alt="Foto 3">
-        <img src="multimedia/foto 5.jpg" alt="foto 4">
-        <img src="multimedia/foto 1.jpg" alt="Foto 5">
-        <img src="multimedia/foto 2.jpg" alt="foto 6">
-        <img src="multimedia/foto 3.jpg" alt="foto 7">
-        <img src="multimedia/foto 4.jpg" alt="foto 8">
-        <img src="multimedia/foto 10.jpg" alt="foto 9">
-      </div>
-      <button class="prev" onclick="moverCarrusel(-1)">⭠</button>
-      <button class="next" onclick="moverCarrusel(1)">⭢</button>
+  <div class="countdown" id="countdown">Cargando cuenta regresiva...</div>
+
+  <div class="texto">📅 Fecha: 10 de mayo del 2025</div>
+  <div class="texto">🕒 Horario: 14:30 hrs</div>
+  <div class="texto">📍 Ubicación: Mi Casa</div>
+
+  <div class="boton">
+    <a href="https://wa.me/1166874312">Confirmar asistencia</a>
+  </div>
+
+  <div class="carrusel-container">
+    <div class="carrusel" id="carrusel">
+      <!-- Imágenes del carrusel -->
+      <img src="multimedia/1 añito.jpg" alt="1añito">
+      <img src="multimedia/1 año.jpg" alt="1 añito">
+      <img src="multimedia/1..jpg" alt="1 añito">
+      <img src="multimedia/1.jpg" alt="1 añito">
+      <img src="multimedia/111.jpg" alt="2 añito">
+      <img src="multimedia/2 añitos.jpg" alt="2 añitos ">
+      <img src="multimedia/2.jpg" alt="2 añitos">
+      <img src="multimedia/3 añitos.jpg" alt="3 añitos">
+      <img src="multimedia/33.jpg" alt="3 añito">
+      <img src="multimedia/333.jpg" alt="3 añito">
+      <img src="multimedia/3333.jpg" alt="3 añito">
+      <img src="multimedia/33333.jpg"alt=" 3 añitos">
+      <img src="multimedia/33333333.jpg" alt="3 añito">
+      <img src="multimedia/4.jpg" alt="4 añitos">
+      <img src="multimedia/434.jpg" alt="4 añitos">
+      <img src="multimedia/44.jpg " alt="4 añito">
+      <img src="multimedia/44444.jpg" alt="4 añito">
+      <img src="multimedia/44444444.jpg" alt="4 añito">
+      <img src="multimedia/Imagen de WhatsApp 2025-03-17 a las 19.23.19_53a7116d.jpg" alt="Foto 1">
+      <img src="multimedia/Imagen de WhatsApp 2025-03-17 a las 19.23.19_665f2c32.jpg" alt="Foto 2">
+      <img src="multimedia/Imagen de WhatsApp 2025-03-17 a las 19.23.19_dab75265.jpg" alt="Foto 3">
+      <img src="multimedia/foto 5.jpg" alt="Foto 4">
+      <img src="multimedia/foto 1.jpg" alt="Foto 5">
+      <img src="multimedia/foto 2.jpg" alt="Foto 6">
+      <img src="multimedia/foto 3.jpg" alt="Foto 7">
+      <img src="multimedia/foto 4.jpg" alt="Foto 8">
+      <img src="multimedia/foto 10.jpg" alt="Foto 9">
     </div>
   </div>
 
   <script>
-    // Cuenta regresiva
     const countdownElement = document.getElementById('countdown');
-    const eventDate = new Date("May 6, 2025 16:00:00").getTime();
+    const eventDate = new Date("May 10, 2025 14:30:00").getTime();
 
     function updateCountdown() {
       const now = new Date().getTime();
       const distance = eventDate - now;
 
       if (distance <= 0) {
-        countdownElement.innerHTML = "🎊 ¡Ya empezó la fiesta! 🎈";
+        countdownElement.innerHTML = "¡Es hora de celebrar!";
+        clearInterval(countdownInterval);
         return;
       }
 
@@ -213,29 +282,23 @@
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      countdownElement.innerHTML = `
-        <span>🗓️ ${days} días</span>
-        <span>⏰ ${hours} hrs</span>
-        <span>🕒 ${minutes} min</span>
-        <span>⏳ ${seconds} seg</span>
-      `;
+      countdownElement.innerHTML = `${days} días ${hours} horas ${minutes} minutos ${seconds} segundos`;
     }
 
-    setInterval(updateCountdown, 1000);
-    updateCountdown(); // Inicializa
+    const countdownInterval = setInterval(updateCountdown, 1000);
+    updateCountdown();
 
-    // Carrusel
-    let index = 0;
-    function moverCarrusel(direccion) {
-      const carrusel = document.getElementById('carrusel');
-      const total = carrusel.children.length;
+    // Carrusel de imágenes
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.carrusel img');
+    const carrusel = document.getElementById('carrusel');
 
-      index += direccion;
-      if (index < 0) index = total - 1;
-      if (index >= total) index = 0;
-
-      carrusel.style.transform = `translateX(-${index * 270}px)`;
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      carrusel.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
+
+    setInterval(nextImage, 3000);
   </script>
 </body>
 </html>
