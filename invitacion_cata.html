@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación de Cumpleaños</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background-color: #ffcce6;
+      text-align: center;
+    }
+    .container {
+      padding: 30px 15px;
+      max-width: 480px;
+      margin: auto;
+    }
+    .hello-kitty-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .hello-kitty {
+      width: 150px;
+      background-color: transparent;
+    }
+    .banderin {
+      font-family: 'Pacifico', cursive;
+      font-size: 26px;
+      color: white;
+      background: linear-gradient(90deg, #ff66b2, #ff99cc);
+      padding: 10px 20px;
+      margin-top: 10px;
+      display: inline-block;
+      border-radius: 25px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .nombre {
+      font-family: 'Pacifico', cursive;
+      font-size: 32px;
+      color: #d63384;
+      margin: 20px 0 15px;
+    }
+    .texto {
+      font-size: 18px;
+      margin: 8px 0;
+      color: #5c005c;
+      font-weight: 600;
+    }
+
+    /* Countdown */
+    .countdown {
+      background: linear-gradient(145deg, #ffe6f0, #ffcce6);
+      border: 2px dashed #ff99cc;
+      display: inline-block;
+      padding: 8px;
+      border-radius: 20px;
+      margin: 12px 0;
+      font-size: 13px;
+      color: #c2185b;
+      font-weight: bold;
+      box-shadow: inset 0 0 8px #ffb3d9;
+      position: relative;
+    }
+    .countdown::before, .countdown::after {
+      content: "🎀";
+      position: absolute;
+      font-size: 14px;
+      top: -14px;
+      left: 10px;
+    }
+    .countdown::after {
+      content: "🎂";
+      top: auto;
+      bottom: -14px;
+      right: 10px;
+      left: auto;
+    }
+    .countdown span {
+      display: inline-block;
+      margin: 2px 3px;
+      padding: 3px 6px;
+      background-color: #fff0f5;
+      border-radius: 15px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+      font-size: 12px;
+    }
+
+    .boton {
+      margin: 25px 0;
+    }
+    .boton a {
+      background-color: #ff3399;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 25px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    /* Carrusel */
+    .carrusel-container {
+      position: relative;
+      max-width: 270px;
+      margin: 30px auto;
+      overflow: hidden;
+      border-radius: 20px;
+      border: 4px solid #ff66b2;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      background-color: white;
+    }
+
+    .carrusel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+    }
+
+    .carrusel img {
+      width: 270px;
+      height: auto;
+      border-radius: 20px;
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #ff99cc;
+      border: none;
+      border-radius: 50%;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-size: 18px;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hello-kitty-container">
+      <img src="multimedia/inicio.png" alt="Hello Kitty" class="hello-kitty">
+      <div class="banderin">🎉 ¡Mis 5 añitos! 🎈</div>
+    </div>
+    <div class="nombre">Cataleya</div>
+    <div class="texto">¡Acompáñame a celebrar mi cumple!</div>
+
+    <!-- Conteo regresivo -->
+    <div class="countdown" id="countdown">
+      Cargando cuenta regresiva...
+    </div>
+
+    <div class="texto">📅 Fecha: 6 de mayo del 2025</div>
+    <div class="texto">🕒 Horario: 16:00 hrs</div>
+    <div class="texto">📍 Ubicación: Salón Arcoíris, Av. Fiesta 123</div>
+
+    <div class="boton">
+      <a href="#">Confirmar asistencia</a>
+    </div>
+
+    <!-- Carrusel de fotos -->
+    <div class="carrusel-container">
+      <div class="carrusel" id="carrusel">
+        <img src="multimedia/Imagen de WhatsApp 2025-03-17 a las 19.23.19_53a7116d.jpg" alt="Foto 1">
+        <img src="multimedia/Imagen de WhatsApp 2025-03-17 a las 19.23.19_665f2c32.jpg" alt="Foto 2">
+        <img src="multimedia/Imagen de WhatsApp 2025-03-17 a las 19.23.19_dab75265.jpg" alt="Foto 3">
+        <img src="multimedia/foto 5.jpg" alt="foto 4">
+        <img src="multimedia/foto 1.jpg" alt="Foto 5">
+        <img src="multimedia/foto 2.jpg" alt="foto 6">
+        <img src="multimedia/foto 3.jpg" alt="foto 7">
+        <img src="multimedia/foto 4.jpg" alt="foto 8">
+        <img src="multimedia/foto 10.jpg" alt="foto 9">
+      </div>
+      <button class="prev" onclick="moverCarrusel(-1)">⭠</button>
+      <button class="next" onclick="moverCarrusel(1)">⭢</button>
+    </div>
+  </div>
+
+  <script>
+    // Cuenta regresiva
+    const countdownElement = document.getElementById('countdown');
+    const eventDate = new Date("May 6, 2025 16:00:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = eventDate - now;
+
+      if (distance <= 0) {
+        countdownElement.innerHTML = "🎊 ¡Ya empezó la fiesta! 🎈";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = `
+        <span>🗓️ ${days} días</span>
+        <span>⏰ ${hours} hrs</span>
+        <span>🕒 ${minutes} min</span>
+        <span>⏳ ${seconds} seg</span>
+      `;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown(); // Inicializa
+
+    // Carrusel
+    let index = 0;
+    function moverCarrusel(direccion) {
+      const carrusel = document.getElementById('carrusel');
+      const total = carrusel.children.length;
+
+      index += direccion;
+      if (index < 0) index = total - 1;
+      if (index >= total) index = 0;
+
+      carrusel.style.transform = `translateX(-${index * 270}px)`;
+    }
+  </script>
+</body>
+</html>
